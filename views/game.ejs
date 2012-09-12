@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ninja Wars!</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="public/js/modit/underscore.js"></script>
+    <script src="public/js/modit/modit.js"></script>
+    <script src="public/js/modit/moditTest.js"></script>
+    <script src="public/js/app/com.js"></script>
+    <script src="public/js/app/map.js"></script>
+    <script src="public/js/app/ejs.js"></script>    
+    <script src="public/js/jquery/jquery-1.6.1.js"></script>
+    <script src="public/js/jquery/jquery.cookie.js"></script>    
+    <link rel="stylesheet" href="public/css/main.css" type="text/css" charset="utf-8" />
+  </head>
+  <body class="game">
+    <div id="name">Sup, <span class="name">playah<%= Math.floor(Math.random(1)*100) %></span>. <a href="/">Change name</a></div>
+    <div class="game-view">      
+      <div id="timer">00:30</div>    
+      <div id="troop-counts">
+        <span>Your ninjas: <span class="tcount"></span>/<span class="tcap">20</span></span>      
+      </div>
+      <div id="map">
+
+        <div id="modal" class="multiview">       
+          <div class="modal-wrapper">         
+            <div class="modal">
+              <div class="modal-content">
+                <p>Waiting for at least 1 other player to connect...</p>
+              </div>             
+            </div>
+          </div>
+
+          <div class="modal-wrapper">
+            <div class="modal">
+              <div class="modal-content">
+                <p><span class="player_count">n</span> players to connected...</p>
+                <button id="startButton">Start the game</button>
+              </div>             
+            </div>
+          </div>
+
+          <div class="modal-wrapper">         
+            <div class="modal">
+              <div class="modal-content">
+                <p><span class="player_count">n</span> players connected. <br /><br /> Waiting for host to start the game</p>
+              </div>             
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div id="actions">
+        <div id="action-panel" class="deploy"></div>
+      </div>
+      <div class="queue">
+        <p>Queued Actions:</p>
+        <div id="notifications">
+          <ul class="action-list" id="action-list">
+          </ul>
+        </div>
+      </div>      
+    </div>
+    <div id="are-ninjas">There are definitely ninjas on this map.</div>
+    <script type="text/javascript">
+      function init(){ map.presenter.init(); } $(init);
+    </script>        
+    <script src="public/js/jquery/jquery.junk.js"></script>
+    <script id="actions-template" type="text/ejs">
+      [% console.log(actions) %]
+      [% if (actions.availableCommands.length) { %]
+      <p>Deploy troops to nearby regions:</p>
+      <table cellspacing="0" cellpadding="0">
+        <tbody>
+          [% for(var a in actions.availableCommands) { 
+            var command = actions.availableCommands[a]; %]
+          <tr>
+            <th scope="row">Region [%= command.to %]</th>
+            <td><input type="text" data-to="[%= command.to %]" value="0" /><button>Max - 1</button></td>
+          </tr>
+          [% } %]
+        </tbody>
+      </table>        
+      <button class="deploy-button">Deploy</button>        
+      [% } %]
+    </script>
+  </body>
+</html>

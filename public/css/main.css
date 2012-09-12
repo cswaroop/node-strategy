@@ -1,0 +1,81 @@
+body{ background:#000; width:960px; height:100%; margin:0 auto; font:100%/normal sans-serif; color:#fff }
+  h1{ margin:0 0 7px }  
+  a{ color:#57A5FF }
+  table{ width:100%; margin:14px 0 7px }
+    td,th{ text-align:left }
+
+  .create, .rooms{ width:440px; padding:10px; border:solid 1px #333; background:#111 }
+    .create{ float:left; clear:left; margin:20px 0 0; text-align:center; -moz-border-radius:7px; -webkit-border-radius:7px }
+    .rooms{ position:fixed; top:0; bottom:0; overflow:auto; margin:0 0 0 480px; border-top:0; border-bottom:0 }
+      .room-list  { list-style:decimal inside; margin:0; padding:0 }    
+        .room-list li{ position:relative; line-height:40px; margin:0 0 7px; padding:0 10px; background:#000; border:solid 1px #333; -moz-border-radius:7px; -webkit-border-radius:7px }
+        .room-list a{ display:block; position:absolute; top:0; left:0; right:0; bottom:0; padding:0 0 0 50px }
+ 
+.game{ width:1100px; padding:25px 0 0 0 }
+  .game-view{ position:relative; padding:10px; border:solid 1px #333; background:#111; -moz-border-radius:7px; -webkit-border-radius:7px }
+  .panel{ padding:10px; border:solid 1px #333; background:#111 }
+    .panel{ margin:0 0 0 820px }
+ 
+#map{ position:relative; width:800px; height:600px; background-image: url('images/bg.jpg'); -moz-border-radius:7px; -webkit-border-radius:7px }
+  #actions, .queue{ position:absolute; top:10px; right:10px; width:266px }
+  #actions{ height:300px; width:252px; padding:7px }
+  
+.queue{ overflow:auto; top:auto; bottom:10px }
+  #notifications{ overflow:auto; height:150px; padding:7px; border:solid 1px #333; background:#000; -moz-border-radius:7px; -webkit-border-radius:7px }
+  #turnResults{ overflow:auto; height:100px; padding:7px; border:solid 1px #333; background:#000; -moz-border-radius:7px; -webkit-border-radius:7px }
+
+.country{ position:absolute; width:75px; height:75px; border:solid 1px #eee; z-index:3; }
+
+.player1 { background:rgba(230,230,250,.9) }
+.player2 { background:rgba(0,255,0,.3) }
+.player3 { background:rgba(0,0,255,.3) }
+.player4 { background:rgba(0,100,0,.3) }
+.playernpc { background:rgba(0,0,0,.3) }
+
+.countryname { color: #000000; font-size: 25px; }
+.countrycounts { position: absolute; bottom: 0px; right: 0px } 
+.countrycount{ margin: 1px; padding: 1px; font-size:11px; line-height:16px; background:#000; height:16px; min-width:16px; text-align:center; -moz-border-radius:16px; -webkit-border-radius:16px }
+
+.countrycountplayer1 { background:rgba(230,230,250,1); color: #000000; }
+.countrycountplayer2 { background:rgba(0,255,0,1); color: #000000; }
+.countrycountplayer3 { background:rgba(0,0,255,1) }
+.countrycountplayer4 { background:rgba(0,100,0,1) }
+.countrycounts .countrycountplayernpc { display:none }
+
+.action-list{ margin:0; padding:0; list-style:none; font-size:12px; }
+  .action-list li{ padding:3px 0; border-bottom:solid 1px #333 }
+  
+.flash-int{ position:absolute; font-size:11px; width:16px; text-align:center; opacity:0 }
+  .negative-int{color:#f00}
+  .positive-int{color:#0f0}
+    
+#timer, #troop-counts{ display:none; position:absolute; right:300px; bottom:17px; background:rgba(0,0,0,.8); padding:7px; z-index:1; -moz-border-radius:7px; -webkit-border-radius:7px }
+  #troop-counts{ top:17px; left:17px; right:auto; bottom:auto; }
+    .game-started #timer, .game-started #troop-counts{display:block}
+  .game-started #modal{display:none }
+
+  
+#name { height:30px; margin:0 0 10px }
+#name p{ margin:0 }  
+
+.deploy table{ margin:10px 0 }
+  .deploy td, .deploy th { text-align:right; padding:5px 0; border-bottom:solid 1px #333 }
+  .deploy th{ text-align:left }            
+  .deploy input{ width:35px }       
+.deploy-button{ width:100%; height:32px }
+  
+#logo{ width:460px; float:left }
+  #logo img{ width:100% }  
+  
+/* `Modal
+/******************************/
+/* Position absolute to allow scrolling, position fixed to force display in center of viewport */
+.modal-wrapper{ display:table; position:absolute; top:0; left:0; width:100%; height:100%; z-index:9 }
+ .modal{ display:table-cell; vertical-align:middle; text-align:center; background:rgba(0,0,0,.6); }
+  .modal-content{ position:relative; z-index:1; display:inline-block; padding:16px; border:solid 1px #333; background:#111; -moz-border-radius:7px; -webkit-border-radius:7px }
+    .modal-close{ position:absolute; top:6px; right:6px; display:block; padding:0 13px 0 0; color:#333; font-size:11px; font-weight:bold; text-decoration:underline; text-transform:lowercase; cursor:pointer; background:url('img/shared/icon-x-gray.png') no-repeat right 4px }
+
+    #logo{ position:relative; }
+    #logo a{ position:absolute; bottom:7px; left:7px; font-size:11px; color:#fff }
+    
+    #are-ninjas{ padding:12px; color:#fff; text-align:center; font-size:12px }

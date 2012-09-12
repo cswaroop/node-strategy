@@ -1,0 +1,11 @@
+{
+  "name": "team-joust",
+  "version": "0.0.1",
+  "dependencies": {
+    "socket.io": "0.7.9",
+    "socket.io-client": "0.7.9",
+    "express": "2.4.6",
+    "ejs": "0.4.3",
+    "nko": "0.1.1"
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ninja Wars!</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="public/js/modit/underscore.js"></script>
+    <script src="public/js/modit/modit.js"></script>
+    <script src="public/js/modit/moditTest.js"></script>
+    <script src="public/js/app/com.js"></script>
+    <script src="public/js/app/rooms.js"></script>
+    <script src="public/js/app/ejs.js"></script>    
+    <script src="public/js/jquery/jquery-1.6.1.js"></script>
+    <script src="public/js/jquery/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="public/css/main.css" type="text/css" charset="utf-8" />
+  </head>
+  <body>
+    <div id="logo">
+      <img src="/public/css/images/NinjaWarsLogo.jpg" />
+      <a href="http://www.flickr.com/photos/jeyhun85/4684666416/sizes/l/in/photostream/">thx 4 teh pic</a>
+    </div>  
+    <div class="create">
+      Create a <a href="/game?gameid=<%= guid %>">public game</a>, <a href="/game?gameid=<%= guid %>&private=true">private game</a>, or a join an existing one
+    </div>
+    <div id="rooms" class="rooms"></div>
+    <script type="text/javascript">
+    function init(){ rooms.view.init(); }
+    $(init);
+    </script>
+
+    <script id="room-template" type="text/ejs">
+      [% if (games.length) { %]
+      <ul class="room-list">
+      [% for (var i = 0, j = games.length; i<j; i++){ var game = games[i]; %]         
+         [% if (!game.isPrivate && !game.isStarted){ %]
+          <li><a href="/game?gameid=[%= game.gameId %]">Join Now</a></li>
+         [% } %]
+       [% } %]
+      </ul>  
+      [% } else { %]
+        <p>No games, bro.</p>
+      [% } %]
+    </script>    
+  </body>
+</html>
